@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3900390981177164887}
   m_Layer: 5
   m_Name: Other_5(battle)
-  m_TagString: Untagged
+  m_TagString: PlaceObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

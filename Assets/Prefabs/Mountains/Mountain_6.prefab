@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7098676500536120879}
   m_Layer: 5
   m_Name: Mountain_6
-  m_TagString: Untagged
+  m_TagString: PlaceObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

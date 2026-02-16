@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8512219163185265807}
   m_Layer: 5
   m_Name: Other_3(tower)
-  m_TagString: Untagged
+  m_TagString: PlaceObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
