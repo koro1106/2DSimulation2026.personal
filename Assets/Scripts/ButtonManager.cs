@@ -6,14 +6,7 @@ public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private WindowAnimation[] windows;
     [SerializeField] private WindowAnimation objectWindows;
-    [SerializeField] private TutorialViewer tutorialViewer;
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) // 左クリック
-        {
-            tutorialViewer.Next(); // チュートリアル次に進める
-        }
-    }
+   
     public void OnObjectsButton() // 素材ウィンドウ
     {
         if(objectWindows.onWindow) // ウィンドウ開いてたら
