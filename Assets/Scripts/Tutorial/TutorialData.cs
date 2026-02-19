@@ -14,5 +14,5 @@ public class TutorialData
     public string choiceB;
     public int nextIDB;
     public string checkFlag; // この行を表示する条件
-    public string setFlag;    // この行を通ったらONにする
+    public string setFlag;   // この行を通ったらONにする
 }

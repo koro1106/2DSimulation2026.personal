@@ -36,17 +36,17 @@ public class TutorialLoader : MonoBehaviour
             TutorialData data = new TutorialData();
 
             // 各列の値を代入　int.TryParse()で文字を数字に変換できて空の可能性があるのでこれ使う
-            int.TryParse(columns[0], out data.ID);              // ID
-            data.speaker = columns[1];                     // 話者
-            data.text = columns[2];                           // テキスト
-            int.TryParse(columns[3], out data.nextID);       // 次ID
-            data.type = columns[4];                         // タイプ
+            int.TryParse(columns[0], out data.ID);        // ID
+            data.speaker = columns[1];                    // 話者
+            data.text = columns[2];                       // テキスト
+            int.TryParse(columns[3], out data.nextID);    // 次ID
+            data.type = columns[4];                       // タイプ
             data.choiceA = columns[5];                    // 選択肢A
             int.TryParse(columns[6], out data.nextIDA);   // Aの次ID
             data.choiceB = columns[7];                    // 選択肢B
-            int.TryParse(columns[8], out data.nextIDB);    // Bの次ID
-            data.checkFlag = columns[9];                 // 表示条件
-            data.setFlag = columns[10];                  // セットするフラグ
+            int.TryParse(columns[8], out data.nextIDB);   // Bの次ID
+            data.checkFlag = columns[9];                  // 表示条件
+            data.setFlag = columns[10];                   // セットするフラグ
 
             // Dictionaryに追加（IDにキーにする）
             dialogueDict.Add(data.ID, data);
