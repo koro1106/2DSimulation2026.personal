@@ -8,6 +8,7 @@ public class TutorialAction : MonoBehaviour
 {
     public TutorialLoader loader; //csv読み込みクラス
     public TutorialViewer viewer;
+    public Typewriter typewriter;
 
     public Image bgImage;
     public Image lineImage;
@@ -31,6 +32,7 @@ public class TutorialAction : MonoBehaviour
         {
             StartCoroutine(FadeInLine());
         }
+
     }
 
 

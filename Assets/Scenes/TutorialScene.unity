@@ -172,7 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainText: {fileID: 1371950515}
   speed: 0.05
-  tutorialViewer: {fileID: 173475065}
+  viewer: {fileID: 173475065}
+  loader: {fileID: 173475064}
+  isTypingEnd: 0
 --- !u!114 &173475064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loader: {fileID: 173475064}
   viewer: {fileID: 173475065}
+  typewriter: {fileID: 173475063}
   bgImage: {fileID: 1974423159}
   lineImage: {fileID: 1353425542}
   duration: 1.5
@@ -955,7 +958,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1363272883}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173475065}
+        m_TargetAssemblyTypeName: TutorialViewer, Assembly-CSharp
+        m_MethodName: OnSlectA
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1363272883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,7 +1430,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1694034463}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173475065}
+        m_TargetAssemblyTypeName: TutorialViewer, Assembly-CSharp
+        m_MethodName: OnSlectB
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1694034463
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 /// </summary>
 public class TutorialData
 {
-   public int ID;
+    public int ID;
     public string speaker; // òbé“
     public string text;
     public int nextID;

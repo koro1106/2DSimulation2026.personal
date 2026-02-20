@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 /// <summary>
 /// チュートリアルテキスト表示用
@@ -47,20 +48,14 @@ public class TutorialViewer : MonoBehaviour
     // 選択肢Aテキスト
     public void ShowSelectA()
     {
-        if (!loader.dialogueDict.ContainsKey(currentID))
-        {
-            Debug.Log("IDが存在しない：" + currentID);
-            return;
-        }
-
         TutorialData data = loader.dialogueDict[currentID];
 
         // ボタン表示
-        if (data.setFlag.Trim() == "onButton") // Trim()は文字列前後の空白や改行を削除してくれる
+        if (data.type.Trim() == "Choice") // Trim()は文字列前後の空白や改行を削除してくれる
         {
             buttonA.SetActive(true);
         }
-        else if (data.setFlag.Trim() == "offButton")
+        else 
             buttonA.SetActive(false);
 
         // ButtonUIに代入
@@ -68,18 +63,12 @@ public class TutorialViewer : MonoBehaviour
     }
     public void ShowSelectB()
     {
-        if (!loader.dialogueDict.ContainsKey(currentID))
-        {
-            Debug.Log("IDが存在しない：" + currentID);
-            return;
-        }
-
         TutorialData data = loader.dialogueDict[currentID];
 
         // ボタン表示
-        if (data.setFlag.Trim() == "onButton")
+        if (data.type.Trim() == "Choice")
             buttonB.SetActive(true);
-        else if(data.setFlag.Trim() == "offButton")
+        else 
             buttonB.SetActive(false);
 
         // ButtonUIに代入
@@ -91,8 +80,40 @@ public class TutorialViewer : MonoBehaviour
     {
         TutorialData data = loader.dialogueDict[currentID];
 
+        // 最後まで行ったらシーン移動
+        if (data.nextID == 100)
+        {
+            SceneManager.LoadScene("PlayScene");
+        }
+
         currentID = data.nextID;
 
+        Refresh();
+    }
+
+    // 選択肢Aボタン用
+    public void OnSlectA()
+    {
+        TutorialData data = loader.dialogueDict[currentID];
+
+        currentID = data.nextIDA;
+
+        Refresh();
+    }
+
+    // 選択肢Bボタン用
+    public void OnSlectB()
+    {
+        TutorialData data = loader.dialogueDict[currentID];
+
+        currentID = data.nextIDB;
+
+        Refresh();
+    }
+
+    // 共通化用
+    void Refresh()
+    {
         ShowDialogue();
         ShowSelectA();
         ShowSelectB();
