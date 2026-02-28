@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,6 +8,7 @@ using UnityEngine.UI;
 public class DeleteCheck : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
+    [SerializeField] private CostManager costManager;
 
     void Update()
     {
@@ -38,9 +38,31 @@ public class DeleteCheck : MonoBehaviour
         GameObject hitUI = results[0].gameObject;
 
         // タグで判定
-        if (hitUI.CompareTag("PlaceObject"))
+        if (hitUI.CompareTag("Tree") || hitUI.CompareTag("House") || hitUI.CompareTag("Mauntain") || hitUI.CompareTag("Other"))
         {
             Destroy(hitUI);
+            CheckCost(hitUI);
+        }
+    }
+
+    // タグ別コスト処理
+    void CheckCost(GameObject obj)
+    {
+        if (obj.CompareTag("Tree"))
+        {
+            costManager.AddCost(1);
+        }
+        else if (obj.CompareTag("House"))
+        {
+            costManager.AddCost(1);
+        }
+        else if (obj.CompareTag("Mountain"))
+        {
+            costManager.AddCost(1);
+        }
+        else if (obj.CompareTag("Other"))
+        {
+            costManager.AddCost(1);
         }
     }
 }

@@ -9,6 +9,7 @@ public class PlacementCheck: MonoBehaviour
     private GameObject objPrefab; // Prefub
     [SerializeField] Canvas canvas;
     [SerializeField] GameObject effectPrefab; // エフェクト
+    [SerializeField] CostManager costManager; // コストマネージャー
 
     Texture2D mapTexture; // 地図画像のTexture(a値判定用)
 
@@ -82,10 +83,10 @@ public class PlacementCheck: MonoBehaviour
     void PlaceObject(Vector2 screenPos)
     {
         // Prefabを地図の子として生成
-        GameObject tree = Instantiate(objPrefab, mapImage.transform);
+        GameObject obj = Instantiate(objPrefab, mapImage.transform);
 
         // PrefabのRectTransform取得
-        RectTransform rt  = tree.GetComponent<RectTransform>();
+        RectTransform rt  = obj.GetComponent<RectTransform>();
         
         // スクリーン座標→地図内ローカル座標に変換
         Vector2 localPos;
@@ -102,6 +103,30 @@ public class PlacementCheck: MonoBehaviour
 
             RectTransform effectRt = effect.GetComponent<RectTransform>();
             effectRt.anchoredPosition = localPos;
+        }
+
+        // コスト処理
+        CheckCost(obj);
+    }
+
+    // タグ別コスト処理
+    void CheckCost(GameObject obj)
+    {
+        if(obj.CompareTag("Tree"))
+        {
+            costManager.UseCost(1);
+        }
+        else if(obj.CompareTag("House"))
+        {
+            costManager.UseCost(1);
+        }
+        else if(obj.CompareTag("Mountain"))
+        {
+            costManager.UseCost(1);
+        }
+        else if(obj.CompareTag("Other"))
+        {
+            costManager.UseCost(1);
         }
     }
 }

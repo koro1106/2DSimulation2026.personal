@@ -80,8 +80,8 @@ public class TutorialViewer : MonoBehaviour
     {
         TutorialData data = loader.dialogueDict[currentID];
 
-        // 最後まで行ったらシーン移動
-        if (data.nextID == 100)
+        // シーン移動
+        if (data.nextID == 17)
         {
             SceneManager.LoadScene("PlayScene");
         }
