@@ -7,8 +7,9 @@ using UnityEngine.UI;
 /// </summary>
 public class TutorialViewer : MonoBehaviour
 {
-    public TutorialLoader loader; //csv読み込みクラス
-    public Typewriter typewriter; //タイプライタークラス
+   [SerializeField] private TutorialLoader loader; //csv読み込みクラス
+   [SerializeField] private Typewriter typewriter; //タイプライタークラス
+   [SerializeField] private NextIndicator nextIndicator; //▽用
 
     public TextMeshProUGUI speakerText;     // 話者表示用
     public TextMeshProUGUI mainText;        // 本文表示用
@@ -41,6 +42,8 @@ public class TutorialViewer : MonoBehaviour
         // UIに代入
         speakerText.text = data.speaker;
         mainText.text = data.text;
+
+        nextIndicator.Hide(); // 新しい文章になる前に一旦消す
 
         typewriter.StartTyping(data.text);
     }

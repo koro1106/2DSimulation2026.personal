@@ -11,6 +11,8 @@ public class Typewriter : MonoBehaviour
     [SerializeField] private float speed = 0.05f;             // 一文字表示する間隔
     [SerializeField] private TutorialViewer viewer;
     [SerializeField] private TutorialLoader loader;
+    [SerializeField] private NextIndicator nextIndicator; //▽用
+
     private bool isTyping = false; // 一文字ずつ表示中かどうか
     public bool isTypingEnd = false; // タイピング終わったかかどうか
     private string currentMessage;
@@ -53,15 +55,34 @@ public class Typewriter : MonoBehaviour
 
         isTyping = false;
         isTypingEnd = true;    // タイピング終了
+
+        int id = viewer.CurrentID;
+        TutorialData data = loader.dialogueDict[id];
+
+        // 選択肢じゃないときだけ▽表示
+        if (data.type.Trim() == "Normal")
+        {
+            nextIndicator.Show();
+        }
     }
 
     public void OnClick() // 表示中なら一瞬で全文表示
     {
+        int id = viewer.CurrentID;
+        TutorialData data = loader.dialogueDict[id];
+
         if (isTyping) // タイピング中だったら
         {
             StopAllCoroutines(); // タイピング終了
             mainText.text = currentMessage;
             isTyping = false;
+            isTypingEnd = true;    // タイピング終了
+
+            // 選択肢じゃないときだけ▽表示
+            if (data.type.Trim() == "Normal")
+            {
+                nextIndicator.Show();
+            }
         }
         else
         {
