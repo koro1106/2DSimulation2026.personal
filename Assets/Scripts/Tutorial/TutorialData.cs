@@ -1,4 +1,3 @@
-using UnityEngine;
 /// <summary>
 /// チュートリアル1行分のデータを保持するクラス
 /// </summary>

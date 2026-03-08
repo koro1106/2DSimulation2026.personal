@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Data.Common;
 using UnityEngine;
 /// <summary>
 /// チュートリアルCSV読み込みクラス
@@ -12,10 +11,10 @@ public class TutorialLoader : MonoBehaviour
     void Awake()
     {
         // ゲーム開始時にCSV読み込む
-        LoadCSV();
+        LoadTutorialCSV();
     }
 
-    void LoadCSV()
+    void LoadTutorialCSV()
     {
         // Resourcesフォルダからcsv読み込む
         TextAsset csv = Resources.Load<TextAsset>("TutorialData");
@@ -48,7 +47,7 @@ public class TutorialLoader : MonoBehaviour
             data.checkFlag = columns[9];                  // 表示条件
             data.setFlag = columns[10];                   // セットするフラグ
 
-            // Dictionaryに追加（IDにキーにする）
+            // Dictionaryに追加（IDをキーにする）
             dialogueDict.Add(data.ID, data);
         }
         // 読み込み完了ログ

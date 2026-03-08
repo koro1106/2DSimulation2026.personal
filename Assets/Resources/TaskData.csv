@@ -1,0 +1,4 @@
+StageID,TaskID,Text,ObjectType(オブジェクトのタグ名),Count(必要数),Reward(報酬)
+1,1,家を１つ創造しよう,House,1,1
+1,2,木を２つ創造しよう,Tree,2,2
+1,3,,Mountain,2,2
