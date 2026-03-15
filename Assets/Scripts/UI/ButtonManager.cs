@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /// <summary>
 /// 素材ボタン以外のボタンのマネージャー
 /// </summary>
@@ -7,7 +8,9 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private WindowAnimation[] windows;
     [SerializeField] private WindowAnimation objectWindows;
     [SerializeField] private CanvasGroup objCanvasGroup;
-   
+
+    [SerializeField] private GameObject option;
+    public bool openOption = false;
     public void OnObjectsButton() // 創造物ウィンドウ
     {
         if(objectWindows.onWindow) // ウィンドウ開いてたら
@@ -64,5 +67,23 @@ public class ButtonManager : MonoBehaviour
             else
                 w.CloseWindow();
         }
+    }
+
+    public void OnOptionButton() // オプション表示
+    {
+        openOption = true;
+        option.SetActive(true);
+    }
+    public void OffOptionButton() // オプション非表示
+    {
+        openOption = false;
+
+        option.SetActive(false);
+    }
+
+    public void StartGame() // スタート
+    {
+        if(!openOption)
+            SceneManager.LoadScene("TutorialScene");
     }
 }

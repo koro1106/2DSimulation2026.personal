@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 /// <summary>
 /// ▽用（表示・非表示・点滅・入力待ち中）
@@ -27,6 +26,7 @@ public class NextIndicator : MonoBehaviour
 
     public void Show()
     {
+        startPos = indicator.anchoredPosition; // 位置保存
         isActive = true;
         indicator.gameObject.SetActive(true);
     }
